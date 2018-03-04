@@ -1,0 +1,99 @@
+System Bootstrap, Version 12.1(3r)T2, RELEASE SOFTWARE (fc1)
+Copyright (c) 2000 by cisco Systems, Inc.
+PT 1001 (PTSC2005) processor (revision 0x200) with 60416K/5120K bytes of memory
+
+Readonly ROMMON initialized
+
+Self decompressing the image :
+######################### [OK]
+
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) PT1000 Software (PT1000-I-M), Version 12.2(28), RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 27-Apr-04 19:01 by miwang
+
+PT 1001 (PTSC2005) processor (revision 0x200) with 60416K/5120K bytes of memory
+.
+Processor board ID PT0123 (0123)
+PT2005 processor: part number 0, mask 01
+Bridging software.
+X.25 software, Version 3.0.0.
+4 FastEthernet/IEEE 802.3 interface(s)
+2 Low-speed serial(sync/async) network interface(s)
+32K bytes of non-volatile configuration memory.
+63488K bytes of ATA CompactFlash (Read/Write)
+
+Press RETURN to get started!
+
+
+%LINK-5-CHANGED: Interface Serial2/0, changed state to up
+
+%LINK-5-CHANGED: Interface Serial3/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial3/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial2/0, changed state to up
+
+00:00:10: %OSPF-5-ADJCHG: Process 1, Nbr 4.4.4.4 on Serial3/0 from LOADING to FULL, Loading Done
+
+00:00:10: %OSPF-5-ADJCHG: Process 1, Nbr 1.1.2.2 on Serial2/0 from LOADING to FULL, Loading Done
+
+%LINK-5-CHANGED: Interface Serial2/0, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial2/0, changed state to down
+
+00:18:23: %OSPF-5-ADJCHG: Process 1, Nbr 1.1.2.2 on Serial2/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+
+%LINK-5-CHANGED: Interface Serial2/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial2/0, changed state to up
+
+00:35:57: %OSPF-5-ADJCHG: Process 1, Nbr 1.1.2.2 on Serial2/0 from LOADING to FULL, Loading Done
+
+
+R1AR1>en
+R1AR1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1AR1(config)#router ospf ?
+  <1-65535>  Process ID
+R1AR1(config)#router ospf 1
+R1AR1(config-router)#router-id 3.3.3.3
+R1AR1(config-router)#network 192.168.0.0 0.0.255.255 area 1
+R1AR1(config-router)#
+R1AR1>en
+R1AR1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1AR1(config)#router o
+02:26:39: %OSPF-5-ADJCHG: Process 1, Nbr 4.4.4.4 on Serial3/0 from FULL to DOWN, Neighbor Down: Dead timer expired
+
+02:26:39: %OSPF-5-ADJCHG: Process 1, Nbr 4.4.4.4 on Serial3/0 from FULL to DOWN, Neighbor Down: Interface down or drouter ospf
+% Incomplete command.
+R1AR1(config)#router ospf 1
+R1AR1(config-router)#area 1 stub
+R1AR1(config-router)#ex
+02:27:09: %OSPF-5-ADJCHG: Process 1, Nbr 1.1.2.2 on Serial2/0 from LOADING to FULL, Loading Done
+it
+R1AR1(config)#ro
+02:27:19: %OSPF-5-ADJCHG: Process 1, Nbr 4.4.4.4 on Serial3/0 from LOADING to FULL, Loading Done
+
+% Incomplete command.
+R1AR1(config)#router ospf 1
+R1AR1(config-router)#area 1 stub
+R1AR1(config-router)#exit
+R1AR1(config)#

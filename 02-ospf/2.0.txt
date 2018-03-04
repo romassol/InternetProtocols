@@ -1,0 +1,111 @@
+System Bootstrap, Version 12.1(3r)T2, RELEASE SOFTWARE (fc1)
+Copyright (c) 2000 by cisco Systems, Inc.
+PT 1001 (PTSC2005) processor (revision 0x200) with 60416K/5120K bytes of memory
+
+Readonly ROMMON initialized
+
+Self decompressing the image :
+######################### [OK]
+
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) PT1000 Software (PT1000-I-M), Version 12.2(28), RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 27-Apr-04 19:01 by miwang
+
+PT 1001 (PTSC2005) processor (revision 0x200) with 60416K/5120K bytes of memory
+.
+Processor board ID PT0123 (0123)
+PT2005 processor: part number 0, mask 01
+Bridging software.
+X.25 software, Version 3.0.0.
+4 FastEthernet/IEEE 802.3 interface(s)
+2 Low-speed serial(sync/async) network interface(s)
+32K bytes of non-volatile configuration memory.
+63488K bytes of ATA CompactFlash (Read/Write)
+
+Press RETURN to get started!
+
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+00:00:45: %OSPF-5-ADJCHG: Process 1, Nbr 1.1.1.1 on FastEthernet0/0 from LOADING to FULL, Loading Done
+
+
+R2AR0>en
+R2AR0#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2AR0(config)#interface loo
+R2AR0(config)#interface loopback 0
+R2AR0(config-if)#ip addre
+R2AR0(config-if)#ip address 10.23.0.1 255.255.255.255
+R2AR0(config-if)#exit
+R2AR0(config)#inter
+R2AR0(config)#interface loop
+R2AR0(config)#interface loopback 1
+R2AR0(config-if)#ip address 10.23.1.1 255.255.255.255
+R2AR0(config-if)#exit
+R2AR0(config)#inte
+R2AR0(config)#interface loo
+R2AR0(config)#interface loopback 2
+R2AR0(config-if)#ip address 10.23.2.1 255.255.255.255
+R2AR0(config-if)#exit
+R2AR0(config)#interface loopback 3
+R2AR0(config-if)#ip address 10.23.3.1 255.255.255.255
+R2AR0(config-if)#exit
+R2AR0(config)#
+R2AR0#
+%SYS-5-CONFIG_I: Configured from console by console
+R2AR0#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2AR0(config)#router ospf 1
+R2AR0(config-router)#router-id 2.2.2.2
+R2AR0(config-router)#network 10.2.2.0 0.0.0.255 area 0
+R2AR0(config-router)#network 10.23.0.0 0.0.255.255 area 0
+R2AR0(config-router)#
+R2AR0(config-router)#exit
+R2AR0(config)#
+R2AR0>en
+R2AR0#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2AR0(config)#int
+R2AR0(config)#interface serial 2/0
+R2AR0(config-if)#no shu
+R2AR0(config-if)#no shutdown 
+R2AR0(config-if)#
+R2AR0>en
+R2AR0#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2AR0(config)#router ospf 1
+R2AR0(config-router)#redi
+R2AR0(config-router)#redistribute ri
+R2AR0(config-router)#redistribute rip sub
+R2AR0(config-router)#redistribute rip subnets 
+R2AR0(config-router)#exit
+R2AR0(config)#
+R2AR0(config)#inter
+R2AR0(config)#interface serial 2/0
+R2AR0(config-if)#exit
+R2AR0(config)#router rip
+R2AR0(config-router)#netwo
+R2AR0(config-router)#network 10.3.3.0
+R2AR0(config-router)#exit
+R2AR0(config)#router ospf 1
+R2AR0(config-router)#redistribute rip subnets 
+R2AR0(config-router)#exit
+R2AR0(config)#
